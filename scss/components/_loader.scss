@@ -1,0 +1,75 @@
+$loader-unit-alpha: 8em;
+$loader-unit-beta: 55%;
+$loader-unit-gamma: 3.25s;
+$loader-unit-delta: 1;
+
+$loader-color-alpha: rgba($color-zeta, $loader-unit-delta);
+$loader-color-beta: rgba($color-zeta, $loader-unit-delta);
+$loader-color-gamma: rgba($color-zeta, $loader-unit-delta);
+$loader-color-delta: rgba($color-zeta, $loader-unit-delta);
+
+.loading {
+  padding: $unit-alpha;
+
+  .loading__alpha {
+    position: relative;
+    width: $loader-unit-alpha;
+    height: $loader-unit-alpha;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  i {
+    position: absolute;
+    width: $loader-unit-alpha;
+    height: $loader-unit-alpha;
+    background: $loader-color-alpha;
+
+    @include animation(alpha $loader-unit-gamma linear infinite forwards);
+    
+    &:nth-child(1) {
+      top: -$loader-unit-beta;
+      left: -$loader-unit-beta;
+    }
+      
+    &:nth-child(2) {
+      top: -$loader-unit-beta;
+      right: -$loader-unit-beta;
+    }
+    
+    &:nth-child(3) {
+      bottom: -$loader-unit-beta;
+      right: -$loader-unit-beta;
+    }
+      
+    &:nth-child(4) {
+      bottom: -$loader-unit-beta;
+      left: -$loader-unit-beta;
+    }
+  }
+}
+
+@include keyframes (alpha) {
+  0% {
+    @include transform(rotate(0));
+    background: $loader-color-alpha;
+  }
+  
+  25% {
+    background: $loader-color-beta;
+  }
+  
+  50% {
+
+    background: $loader-color-gamma;
+  }
+  
+  75% {
+    background: $loader-color-delta;
+  }
+  
+  100% {
+    @include transform(rotate(360deg));
+    background: $loader-color-alpha;
+  }
+}

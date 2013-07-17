@@ -1,0 +1,72 @@
+%helper-alpha {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+
+%center {
+  @extend %helper-alpha;
+  @include transform (translate(-50%, -50%));
+}
+
+%bottom-2 {
+  @extend %helper-alpha;
+}
+
+.text--center {
+  text-align: center;
+}
+
+.text--left {
+  text-align: left;
+}
+
+.text--right {
+  text-align: right;
+}
+
+@mixin position($top, $left, $content: '') {
+  position: absolute;
+  top: $top;
+  left: $left;
+  content: $content;
+}
+  
+@mixin breakpoint($point) {
+  @if $point == large {
+    @media (min-width: 85em) { @content; }
+  }
+  @if $point == medium {
+    @media (max-width: 85em) { @content; }
+  }
+  @if $point == small {
+    @media (max-width: 60em) { @content; } 
+  }
+}
+
+/*
+ * Linear gradient with old and new syntax. 
+ */
+@mixin bg($direction, $direction_old, $colors) {
+  @include background(
+    linear-gradient($direction_old, $colors)
+  );
+  @include background(
+    linear-gradient($direction, $colors)
+  );
+}
+
+
+@mixin animation($value) {
+  -webkit-animation: unquote($value);
+     -moz-animation: unquote($value);
+       -o-animation: unquote($value);
+          animation: unquote($value);
+}
+
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} { @content; }
+     @-moz-keyframes #{$name} { @content; }
+       @-o-keyframes #{$name} { @content; }
+          @keyframes #{$name} { @content; }
+}

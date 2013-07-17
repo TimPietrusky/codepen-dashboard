@@ -1,0 +1,248 @@
+@import "compass/css3";
+
+@import "vars";
+@import "components/loader";
+
+body {
+  background: $color-alpha;
+  font: 1em "Lato", sans-serif;
+  margin: $unit-gamma 0;
+
+  @include breakpoint(small) {
+    margin-top: $unit-gamma * 2;
+  }
+
+  &::-webkit-scrollbar {
+      width: 1em;
+      background: #fff;
+  }
+   
+  &::-webkit-scrollbar-track {
+  }
+   
+  &::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.8);
+  }
+}
+
+footer {
+  text-align:right;
+  padding-right: $unit-alpha;
+}
+
+.dashboard {
+  position: relative;
+  margin: $unit-alpha 0;
+  padding: 0 0 0 $unit-alpha;
+  background: $color-gamma;
+  box-shadow: .05em .05em 0 .05em $color-beta;
+   
+  h1 {
+    font-size: 1.2em;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+    
+    @include breakpoint(small) {
+      text-align: center;
+      letter-spacing: .05em;
+      font-weight: 700;
+    }
+    
+    > span {
+      color: $color-zeta;
+    }
+  }
+  
+  section {
+    &:last-child {
+      .alpha {
+        border-bottom: none;
+      }
+    }
+  }
+  
+  table {
+    width: 100%;
+    
+    td {
+      position: relative;
+      text-align: center;
+    }
+  }
+  
+  .pen__link {
+    margin-bottom: $unit-delta;
+    width: 100%;
+    @include transition(margin .25s ease-in-out);
+    
+    &:hover {
+      margin-bottom: $unit-alpha;
+      margin-top: $unit-alpha + ($unit-beta * 2);
+    }
+    
+    @include breakpoint(medium) {
+      margin-top: $unit-alpha + ($unit-beta * 2);
+    }
+    
+    @include breakpoint(small) {
+      margin: 0;
+      
+      &:hover {
+        margin: 0;
+      }
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $color-epsilon;
+  
+  @include transition(color .15s ease-in-out);
+  
+  &:hover {
+    color: #000;
+  }
+}
+
+p {
+  margin-top: $unit-alpha / 2;
+  line-height: 1em;
+}
+
+canvas {
+  margin: 0 .25em;
+} 
+
+.overflow {
+  overflow: hidden;
+  position: relative;
+}
+
+.author {
+  @include breakpoint(small) {
+    margin-bottom: $unit-alpha;
+  }
+}
+
+.alpha {
+  border-top: $unit-beta * 2 solid darken($color-zeta, 25%);
+  border-bottom: $unit-beta * 2 solid transparent;
+  
+  img {
+    width:100%;
+    max-width: 100%;
+    margin-bottom: -1em;
+  }
+  
+  a {
+    display: inline-block;
+  }
+}
+
+.beta {
+  padding-right: $unit-alpha;
+  
+  h2 {
+    font-size:1.25em;
+    font-weight: 400;
+    letter-spacing: .05em;
+    padding: $unit-alpha / 2;
+    margin: 0 0 $unit-alpha / 2 0;
+    color: #fff;
+    background: darken($color-zeta, 25%);
+  }
+  
+  h3 {
+    display: inline-block;
+    font-size:1.05em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    
+    @include breakpoint(small) {
+      margin-bottom: $unit-alpha * 2;
+    }
+  }
+}
+
+.delta {
+  border-bottom: $unit-beta solid $color-alpha;
+}
+
+.gamma {
+  $list-beta: $color-gamma, rgba($color-beta, .1), $color-gamma;
+  @include bg(to right, left, $list-beta)
+}
+
+.epsilon {
+  width: 5em !important;
+  height: 5em;
+  padding-right: $unit-alpha;
+
+  @include breakpoint(medium) {
+    width: 3em !important;
+    height: 3em;
+  }
+}
+
+.zeta {
+  @extend %center;
+}
+
+.eta {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background: rgba(#000, .8); 
+  color: #fff;
+  width: 100%;
+  max-height: 2em;
+  padding: $unit-alpha 0 $unit-alpha $unit-alpha;
+  
+  @include breakpoint(small) {
+    max-height: 4em;
+    
+    h1 {
+      margin-bottom: $unit-alpha;
+    }
+  }
+  
+  table {
+    td {
+      font-size: 1.15em;
+      text-align: center;
+      
+      &:nth-child(1) {
+        padding-right: 1em;
+      }
+      
+      &:nth-child(2) {
+        padding-right: -.15em;
+      }
+    }
+  }
+}
+
+.theta {
+  padding: 0 $unit-alpha;
+}
+
+.iota {
+  color: #000;
+  margin-left: $unit-alpha / 2;
+  padding: $unit-alpha / 2;
+  font-size: $unit-alpha;
+  border-radius: .5em;
+  
+  $list-alpha: #f7ec13, #b8892d;
+  @include bg(to bottom, top, $list-alpha);
+}
+
+
+@media (max-width:50em){
+  .pure-g-r > .pure-u,
+  .pure-g-r > [class *="pure-u-"]{width:100%;}
+} 

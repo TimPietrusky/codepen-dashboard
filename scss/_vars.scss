@@ -1,0 +1,15 @@
+@import "assets/helper";
+@import "assets/purecss";
+@import "assets/fonts";
+
+$color-alpha: #e7e9e8;
+$color-beta: darken($color-alpha, 10%);
+$color-gamma: #fff;
+$color-delta: rgba(#666, .25);
+$color-epsilon: #666;
+$color-zeta: #76daff;
+
+$unit-alpha: .75em;
+$unit-beta: .15em;
+$unit-gamma: 4em;
+$unit-delta: -4em;
