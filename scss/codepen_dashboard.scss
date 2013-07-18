@@ -8,6 +8,10 @@ body {
   font: 1em "Lato", sans-serif;
   margin: $unit-gamma 0;
 
+  @include breakpoint(medium) {
+    font-size: .925em;
+  }
+
   @include breakpoint(small) {
     margin-top: $unit-gamma * 2;
   }
